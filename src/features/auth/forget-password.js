@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import {toast} from "react-toastify"
+import { API_BASE_URL_AUTH } from "../../constants/APIConstants"
 
 const ForgetPassword = () => {
   const [email, setEmail] = useState("")
@@ -8,7 +9,7 @@ const ForgetPassword = () => {
     e.preventDefault()
     e.stopPropagation()
     const response = await fetch(
-      `https://auth-task-app.up.railway.app/api/password-reset/${email}`,
+      `${API_BASE_URL_AUTH}/api/password-reset/${email}`,
       {
         method: "GET",
         headers: {

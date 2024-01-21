@@ -5,6 +5,7 @@ import { useSelector } from "react-redux"
 import { useCallback, memo, lazy } from "react"
 import { Suspense } from "react"
 import { useRouter } from "next/router"
+import { API_BASE_URL_AUTH } from "../../constants/APIConstants"
 
 const Profile = lazy(() => import("../../features/Profile"))
 const Index = () => {
@@ -15,7 +16,7 @@ const Index = () => {
   const [loading, setLoading] = useState(false)
   const fetchData = useCallback(async () => {
     try {
-      const response = await axios("https://auth-task-app.up.railway.app/api/users/v1/me", {
+      const response = await axios(`${API_BASE_URL_AUTH}/api/users/v1/me`, {
         headers: { Authorization: `Bearer ${tokenString}` },
       });
       setUserProfile(response.data);

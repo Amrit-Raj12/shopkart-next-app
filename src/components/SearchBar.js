@@ -2,6 +2,7 @@ import axios from "axios"
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import OutsideClickHandler from "react-outside-click-handler/build/OutsideClickHandler"
+import { API_BASE_URL_AUTH } from "../constants/APIConstants"
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("")
@@ -15,7 +16,7 @@ const SearchBar = () => {
       if (searchTerm) {
         axios
           .get(
-            `https://auth-task-app.up.railway.app/api/products/search/${term}`
+            `${API_BASE_URL_AUTH}/api/products/search/${term}`
           )
           .then((response) => {
             if (isMounted) {

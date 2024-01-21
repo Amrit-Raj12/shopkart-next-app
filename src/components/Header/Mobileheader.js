@@ -5,6 +5,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid"
 import { useDispatch, useSelector } from "react-redux"
 import { profileAction } from "../../redux/profileSlice"
 import Cookies from "js-cookie"
+import { API_BASE_URL_AUTH } from "../../constants/APIConstants"
 
 const Mobileheader = ({ setMobileMenuOpen, profile }) => {
   function classNames(...classes) {
@@ -13,7 +14,7 @@ const Mobileheader = ({ setMobileMenuOpen, profile }) => {
   const dispatch = useDispatch()
   const profileData = useSelector((state) => state?.profile?.profile)
   const handleSignOut = async () => {
-    await fetch("https://auth-task-app.up.railway.app/api/users/logout", {
+    await fetch(`${API_BASE_URL_AUTH}/api/users/logout`, {
       method: "POST",
       headers: {
         Accept: "application/json",

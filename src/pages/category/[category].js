@@ -3,6 +3,7 @@ import { useState } from "react"
 import axios from "axios"
 import Loader from "../../components/loading/loading"
 import { useRouter } from "next/router"
+import { API_BASE_URL_AUTH } from "../../constants/APIConstants"
 
 const Cateogry = lazy(() => import('../../features/category/index'))
 function valuetext(value) {
@@ -12,7 +13,7 @@ export async function getServerSideProps(context) {
   const { category } = context.query
   let data
   try {
-    const response = await axios.get(`https://auth-task-app.up.railway.app/api/products/search/${category}`);
+    const response = await axios.get(`${API_BASE_URL_AUTH}/api/products/search/${category}`);
     data = response?.data
     // console.log('data', data)
   } catch (error) {
@@ -51,7 +52,7 @@ const Filter = ({ data }) => {
     // console.log('adsadad', category, filterName)
     setLoadingProduct(true);
     setTimeout(() => {
-      axios.post(`https://auth-task-app.up.railway.app/api/products/${category}/filterby/${filterName}`, data)
+      axios.post(`${API_BASE_URL_AUTH}/api/products/${category}/filterby/${filterName}`, data)
       .then((res) => {
           if (res?.data?.success) {
             setProducts(res?.data?.flData);

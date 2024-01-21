@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from "react"
 import ProductsCarousel from "../Products/ProductsCarousel"
 import axios from "axios"
+import { API_BASE_URL_AUTH } from "../../constants/APIConstants"
 
 const Index = () => {
   const urls = [
-    `https://auth-task-app.up.railway.app/api/products/search/fashion`,
-    `https://auth-task-app.up.railway.app/api/products/search/laptop`,
-    `https://auth-task-app.up.railway.app/api/products/search/laptop`,
+    `${API_BASE_URL_AUTH}/api/products/search/fashion`,
+    `${API_BASE_URL_AUTH}/api/products/search/laptop`,
+    `${API_BASE_URL_AUTH}/api/products/search/laptop`,
   ]
   const [categoryData, setCategoryData] = useState([])
   const handleURL = async () => {

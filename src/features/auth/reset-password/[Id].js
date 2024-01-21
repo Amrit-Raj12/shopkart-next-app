@@ -2,6 +2,7 @@ import axios from "axios"
 import {useRouter} from "next/router"
 import {useState} from "react"
 import {toast} from "react-toastify"
+import { API_BASE_URL_AUTH } from "../../../constants/APIConstants"
 
 const ResetPassword = () => {
   const [user, setUser] = useState({
@@ -22,7 +23,7 @@ const ResetPassword = () => {
     if (user.newPassword === user.confirmPassword) {
       axios
         .patch(
-          `https://auth-task-app.up.railway.app/api/change-password/${id}`,
+          `${API_BASE_URL_AUTH}/api/change-password/${id}`,
           {password: user.confirmPassword}
         )
         .then(function (response) {

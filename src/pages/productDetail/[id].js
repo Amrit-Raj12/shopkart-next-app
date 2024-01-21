@@ -1,13 +1,14 @@
 import axios from "axios"
 import { Suspense, lazy, memo } from "react"
 import Loader from "../../components/loading/loading"
+import { API_BASE_URL_AUTH } from "../../constants/APIConstants"
 const ProductDetails = lazy(() => import("../../components/Products/ProductDetails"))
 export async function getServerSideProps(context) {
   const { id } = context.query
   let data
   try {
     const response = await axios.get(
-      `https://auth-task-app.up.railway.app/api/products/${id}`
+      `${API_BASE_URL_AUTH}/api/products/${id}`
     )
     data = response?.data
   } catch (error) {

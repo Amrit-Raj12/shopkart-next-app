@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadStripe } from '@stripe/stripe-js';
 import { useRouter } from 'next/router'
+import { API_BASE_URL_AUTH } from '../constants/APIConstants';
 
 const PayButton = () => {
 
@@ -22,7 +23,7 @@ const PayButton = () => {
         else {
 
             setloading(true)
-            axios.post(`https://auth-task-app.up.railway.app/api/stripe/create-checkout-session`, { cartItems, userId: profileData?.user?._id })
+            axios.post(`${API_BASE_URL_AUTH}/api/stripe/create-checkout-session`, { cartItems, userId: profileData?.user?._id })
                 .then((res) => {
                     console.log('res', res)
                     if (res.data?.url) {

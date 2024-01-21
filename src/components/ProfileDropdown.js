@@ -24,6 +24,7 @@ import {
 } from "@material-tailwind/react"
 import { Cog6ToothIcon, PowerIcon, HeartIcon, ShoppingBagIcon } from "@heroicons/react/24/outline"
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined"
+import { API_BASE_URL_AUTH } from "../constants/APIConstants"
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ")
 }
@@ -34,7 +35,7 @@ export default function Example() {
   const router = useRouter()
   const dispatch = useDispatch()
   const handleSignOut = async () => {
-    await fetch("https://auth-task-app.up.railway.app/api/users/logout", {
+    await fetch(`${API_BASE_URL_AUTH}/api/users/logout`, {
       method: "POST",
       headers: {
         Accept: "application/json",
