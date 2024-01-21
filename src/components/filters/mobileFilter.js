@@ -2,7 +2,7 @@ import { Rating, Slider } from "@mui/material";
 import React, { useEffect } from "react";
 import OutsideClickHandler from "react-outside-click-handler/build/OutsideClickHandler";
 
-const mobileFilter = ({
+const MobileFilter = ({
   setfilterActive,
   uniqueBrands,
   priceFilter,
@@ -285,4 +285,4 @@ const mobileFilter = ({
   );
 };
 
-export default mobileFilter;
+export default MobileFilter;
