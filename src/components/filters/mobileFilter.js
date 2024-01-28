@@ -1,4 +1,5 @@
 import { Rating, Slider } from "@mui/material";
+import Link from "next/link";
 import React, { useEffect } from "react";
 import OutsideClickHandler from "react-outside-click-handler/build/OutsideClickHandler";
 
@@ -20,6 +21,8 @@ const MobileFilter = ({
   useEffect(() => {
     getPriceFilter(category);
   }, [category, setPriceFilter]);
+
+  console.log('category', category)
   
 
   return (
@@ -60,36 +63,10 @@ const MobileFilter = ({
               </div>
 
               <form class="mt-4 border-t border-gray-200">
-                <h3 class="sr-only">Categories</h3>
+                <h3 class="sr-only text-black">Categories</h3>
                 <ul role="list" class="px-2 py-3 font-medium text-gray-900">
                   <li>
-                    <a href="#" class="block px-2 py-3">
-                      Totes
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="#" class="block px-2 py-3">
-                      Backpacks
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="#" class="block px-2 py-3">
-                      Travel Bags
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="#" class="block px-2 py-3">
-                      Hip Bags
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="#" class="block px-2 py-3">
-                      Laptop Sleeves
-                    </a>
+                    <Link href={`/category/${category}`} className="block px-2 py-3 hover:text-blue-200">{category}</Link>
                   </li>
                 </ul>
 
