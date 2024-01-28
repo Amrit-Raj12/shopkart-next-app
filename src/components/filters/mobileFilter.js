@@ -22,9 +22,6 @@ const MobileFilter = ({
     getPriceFilter(category);
   }, [category, setPriceFilter]);
 
-  console.log('category', category)
-  
-
   return (
     <>
       <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">

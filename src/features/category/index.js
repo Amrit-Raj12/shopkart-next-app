@@ -70,7 +70,6 @@ const Index = ({
     brandData.length = 0; // Clear the array
     brandData.push(...selectedBrands.map((brand) => brand.value));
 
-    console.log("brandData", brandData, selectedBrands);
     if (brandData?.length > 0) {
       handleFilters({
         category: category,
@@ -122,8 +121,6 @@ const Index = ({
     selectedBrands,
     setRatingFilter
   };
-
-  console.log('loadingProduct', loadingProduct)
 
   return (
     <>
