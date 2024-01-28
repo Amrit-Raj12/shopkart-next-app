@@ -24,26 +24,26 @@ const MobileFilter = ({
 
   return (
     <>
-      <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 bg-black bg-opacity-25"></div>
+      <div className="relative z-40 lg:hidden" role="dialog" aria-modal="true">
+        <div className="fixed inset-0 bg-black bg-opacity-25"></div>
 
-        <div class="fixed inset-0 z-40 flex">
-          <div class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
+        <div className="fixed inset-0 z-40 flex">
+          <div className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
             <OutsideClickHandler
               onOutsideClick={() => {
                 setfilterActive(false);
               }}
             >
-              <div class="flex items-center justify-between px-4">
-                <h2 class="text-lg font-medium text-gray-900">Filters</h2>
+              <div className="flex items-center justify-between px-4">
+                <h2 className="text-lg font-medium text-gray-900">Filters</h2>
                 <button
                   onClick={() => setfilterActive(false)}
                   type="button"
-                  class="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
+                  className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
                 >
-                  <span class="sr-only">Close menu</span>
+                  <span className="sr-only">Close menu</span>
                   <svg
-                    class="h-6 w-6"
+                    className="h-6 w-6"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
@@ -59,29 +59,29 @@ const MobileFilter = ({
                 </button>
               </div>
 
-              <form class="mt-4 border-t border-gray-200">
-                <h3 class="sr-only text-black">Categories</h3>
-                <ul role="list" class="px-2 py-3 font-medium text-gray-900">
+              <form className="mt-4 border-t border-gray-200">
+                <h3 className="sr-only text-black">Categories</h3>
+                <ul role="list" className="px-2 py-3 font-medium text-gray-900">
                   <li>
                     <Link href={`/category/${category}`} className="block px-2 py-3 hover:text-blue-200">{category}</Link>
                   </li>
                 </ul>
 
-                <div class="border-t border-gray-200 px-4 py-6">
-                  <h3 class="-mx-2 -my-3 flow-root">
+                <div className="border-t border-gray-200 px-4 py-6">
+                  <h3 className="-mx-2 -my-3 flow-root">
                     <button
                       type="button"
-                      class="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
+                      className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
                       aria-controls="filter-section-mobile-2"
                       aria-expanded="false"
                     >
-                      <span class="font-medium text-gray-900">Price</span>
+                      <span className="font-medium text-gray-900">Price</span>
                     </button>
                   </h3>
 
-                  <div class="pt-6" id="filter-section-mobile-2">
-                    <div class="space-y-6">
-                      <div class="flex items-center">
+                  <div className="pt-6" id="filter-section-mobile-2">
+                    <div className="space-y-6">
+                      <div className="flex items-center">
                         <Slider
                           aria-label="Small steps"
                           defaultValue={priceFilter?.min}
@@ -98,18 +98,18 @@ const MobileFilter = ({
                   </div>
                 </div>
 
-                <div class="border-t border-gray-200 px-4 py-6">
-                  <h3 class="-mx-2 -my-3 flow-root">
+                <div className="border-t border-gray-200 px-4 py-6">
+                  <h3 className="-mx-2 -my-3 flow-root">
                     <button
                       type="button"
-                      class="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
+                      className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
                       aria-controls="F-section-mobile-0"
                       aria-expanded="false"
                     >
-                      <span class="font-medium text-gray-900">Brand</span>
-                      {/* <span class="ml-6 flex items-center">
+                      <span className="font-medium text-gray-900">Brand</span>
+                      {/* <span className="ml-6 flex items-center">
                         <svg
-                          class="h-5 w-5"
+                          className="h-5 w-5"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                           aria-hidden="true"
@@ -118,7 +118,7 @@ const MobileFilter = ({
                         </svg>
 
                         <svg
-                          class="h-5 w-5"
+                          className="h-5 w-5"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                           aria-hidden="true"
@@ -133,10 +133,10 @@ const MobileFilter = ({
                     </button>
                   </h3>
 
-                  <div class="pt-6" id="filter-section-mobile-0">
+                  <div className="pt-6" id="filter-section-mobile-0">
                     {uniqueBrands?.map((item, index) => (
-                      <div key={index} class="space-y-6">
-                        <div class="flex items-center">
+                      <div key={index} className="space-y-6">
+                        <div className="flex items-center">
                           <input
                             id={`filter-color-${index}`}
                             name="brand"
@@ -146,11 +146,11 @@ const MobileFilter = ({
                             checked={selectedBrands.some(
                               (brand) => brand.value === item
                             )}
-                            class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                           />
                           <label
                             for="filter-mobile-color-0"
-                            class="ml-3 min-w-0 flex-1 text-gray-500"
+                            className="ml-3 min-w-0 flex-1 text-gray-500"
                           >
                             {item}
                           </label>
@@ -160,18 +160,18 @@ const MobileFilter = ({
                   </div>
                 </div>
 
-                <div class="border-t border-gray-200 px-4 py-6">
-                  <h3 class="-mx-2 -my-3 flow-root">
+                <div className="border-t border-gray-200 px-4 py-6">
+                  <h3 className="-mx-2 -my-3 flow-root">
                     <button
                       type="button"
-                      class="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
+                      className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
                       aria-controls="filter-section-mobile-1"
                       aria-expanded="false"
                     >
-                      <span class="font-medium text-gray-900">Rating</span>
-                      {/* <span class="ml-6 flex items-center">
+                      <span className="font-medium text-gray-900">Rating</span>
+                      {/* <span className="ml-6 flex items-center">
                         <svg
-                          class="h-5 w-5"
+                          className="h-5 w-5"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                           aria-hidden="true"
@@ -180,7 +180,7 @@ const MobileFilter = ({
                         </svg>
 
                         <svg
-                          class="h-5 w-5"
+                          className="h-5 w-5"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                           aria-hidden="true"
@@ -195,10 +195,10 @@ const MobileFilter = ({
                     </button>
                   </h3>
 
-                  <div class="pt-6" id="filter-section-mobile-1">
-                    <div class="space-y-6">
+                  <div className="pt-6" id="filter-section-mobile-1">
+                    <div className="space-y-6">
                       <div
-                        class="flex items-center"
+                        className="flex items-center"
                         onClick={() => {
                           setRatingFilter({
                             name: "Rating",
@@ -210,7 +210,7 @@ const MobileFilter = ({
                       </div>
 
                       <div
-                        class="flex items-center"
+                        className="flex items-center"
                         onClick={() => {
                           setRatingFilter({
                             name: "Rating",
@@ -222,7 +222,7 @@ const MobileFilter = ({
                       </div>
 
                       <div
-                        class="flex items-center"
+                        className="flex items-center"
                         onClick={() => {
                           setRatingFilter({
                             name: "Rating",
@@ -234,7 +234,7 @@ const MobileFilter = ({
                       </div>
 
                       <div
-                        class="flex items-center"
+                        className="flex items-center"
                         onClick={() => {
                           setRatingFilter({
                             name: "Rating",

@@ -14,16 +14,16 @@ const Sort = ({ handleLowToHigh, handleHighToLow, handleRating }) => {
           setSort(false)
         }}
       >
-        <div class="relative inline-block text-left">
+        <div className="relative inline-block text-left">
           <div>
             <button
-              class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900"
+              className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900"
               id="menu-button"
               onClick={handleSort}
             >
               Sort
               <svg
-                class="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-900"
+                className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-900"
                 viewBox="0 0 20 20"
                 fill="currentColor"
                 aria-hidden="true"
@@ -39,16 +39,16 @@ const Sort = ({ handleLowToHigh, handleHighToLow, handleRating }) => {
 
           {sort ? (
             <div
-              class="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none"
+              className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="menu-button"
               tabindex="-1"
             >
-              <div class="py-1" role="none">
+              <div className="py-1" role="none">
                 <p
 
-                  class="font-medium text-gray-900 block px-4 py-2 text-sm"
+                  className="font-medium text-gray-900 block px-4 py-2 text-sm"
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-0"
@@ -61,7 +61,7 @@ const Sort = ({ handleLowToHigh, handleHighToLow, handleRating }) => {
                     handleRating()
                     setSort(!sort)
                   }}
-                  class="text-gray-900 block px-4 py-2 text-sm"
+                  className="text-gray-900 block px-4 py-2 text-sm"
                   role="menuitem"
                   tabindex="-2"
                   id="menu-item-2"
@@ -76,7 +76,7 @@ const Sort = ({ handleLowToHigh, handleHighToLow, handleRating }) => {
                     handleLowToHigh()
                     setSort(!sort)
                   }}
-                  class="text-gray-900 block px-4 py-2 text-sm"
+                  className="text-gray-900 block px-4 py-2 text-sm"
 
                 >
                   Price: Low to High
@@ -87,7 +87,7 @@ const Sort = ({ handleLowToHigh, handleHighToLow, handleRating }) => {
                     handleHighToLow()
                     setSort(!sort)
                   }}
-                  class="text-gray-900 block px-4 py-2 text-sm"
+                  className="text-gray-900 block px-4 py-2 text-sm"
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-4"

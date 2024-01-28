@@ -154,9 +154,9 @@ const ProductDetails = ({ data }) => {
           </div>
           <div className="w-full flex flex-row justify-between">
             {items.some((item) => item._id === id) ?
-              <Link href='/cart' class="flex	items-center justify-center leading-none py-4	text-white bg-indigo-700 w-3/4 mt-3 text-base">
+              <Link href='/cart' className="flex	items-center justify-center leading-none py-4	text-white bg-indigo-700 w-3/4 mt-3 text-base">
                 <LocalMallIcon />
-                <span class="ml-1">Go to cart</span>
+                <span className="ml-1">Go to cart</span>
               </Link>
               : <button
                 onClick={() => handleAddToCart(data)}

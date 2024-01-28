@@ -124,17 +124,17 @@ const Index = ({
 
   return (
     <>
-      <div class="">
+      <div className="">
         <div>
           {filterActive ? <MobileFilter {...mobilFilterProps} /> : ""}
 
           <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-6 sm:pt-24">
-              <h1 class="text-2xl font-bold tracking-tight text-gray-900">
+            <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-6 sm:pt-24">
+              <h1 className="text-2xl font-bold tracking-tight text-gray-900">
                 Category
               </h1>
 
-              <div class="flex items-center">
+              <div className="flex items-center">
                 <Sort
                   handleLowToHigh={handleLowToHigh}
                   handleHighToLow={handleHighToLow}
@@ -143,12 +143,12 @@ const Index = ({
 
                 <button
                   type="button"
-                  class="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
+                  className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
                   onClick={() => setGrid(!grid)}
                 >
-                  <span class="sr-only">View grid</span>
+                  <span className="sr-only">View grid</span>
                   <svg
-                    class="h-5 w-5"
+                    className="h-5 w-5"
                     aria-hidden="true"
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -162,12 +162,12 @@ const Index = ({
                 </button>
                 <button
                   type="button"
-                  class="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+                  className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
                   onClick={() => setfilterActive(!filterActive)}
                 >
-                  <span class="sr-only">Filters</span>
+                  <span className="sr-only">Filters</span>
                   <svg
-                    class="h-5 w-5"
+                    className="h-5 w-5"
                     aria-hidden="true"
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -182,38 +182,38 @@ const Index = ({
               </div>
             </div>
 
-            <section aria-labelledby="products-heading" class="pb-24 pt-6">
-              <h2 id="products-heading" class="sr-only">
+            <section aria-labelledby="products-heading" className="pb-24 pt-6">
+              <h2 id="products-heading" className="sr-only">
                 Products
               </h2>
 
-              <div class="conatiner mx-auto flex justify-between ">
-                <form class="hidden lg:block w-1/4">
-                  <h3 class="sr-only">Categories</h3>
+              <div className="conatiner mx-auto flex justify-between ">
+                <form className="hidden lg:block w-1/4">
+                  <h3 className="sr-only">Categories</h3>
                   <ul
                     role="list"
-                    class="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
+                    className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
                   >
                     <li>
                       <Link href={`/category/${category}`} className="hover:text-blue-200">{category}</Link>
                     </li>
                   </ul>
 
-                  <div class="border-b border-gray-200 py-6">
-                    <h3 class="-my-3 flow-root">
+                  <div className="border-b border-gray-200 py-6">
+                    <h3 className="-my-3 flow-root">
                       <button
                         type="button"
-                        class="flex w-full items-center justify-between bg-white p-3 text-sm text-gray-400 hover:text-gray-500"
+                        className="flex w-full items-center justify-between bg-white p-3 text-sm text-gray-400 hover:text-gray-500"
                         aria-controls="filter-section-0"
                         aria-expanded="false"
                       >
-                        <span class="font-medium text-gray-900">Price</span>
+                        <span className="font-medium text-gray-900">Price</span>
                       </button>
                     </h3>
 
-                    <div class="pt-6" id="filter-section-0">
-                      <div class="space-y-4">
-                        <div class="flex items-center">
+                    <div className="pt-6" id="filter-section-0">
+                      <div className="space-y-4">
+                        <div className="flex items-center">
                           <Slider
                             aria-label="Small steps"
                             defaultValue={priceFilter?.min}
@@ -229,19 +229,19 @@ const Index = ({
                       </div>
                     </div>
                   </div>
-                  <div class="border-b border-gray-200 py-6">
-                    <h3 class="-my-3 flow-root">
+                  <div className="border-b border-gray-200 py-6">
+                    <h3 className="-my-3 flow-root">
                       <button
                         type="button"
-                        class="flex w-full items-center justify-between bg-white p-3 text-sm text-gray-400 hover:text-gray-500"
+                        className="flex w-full items-center justify-between bg-white p-3 text-sm text-gray-400 hover:text-gray-500"
                         aria-controls="filter-section-0"
                         aria-expanded="false"
                         onClick={() => setToggleBrand(!toggleBrand)}
                       >
-                        <span class="font-medium text-gray-900">Brand</span>
-                        <span class="ml-6 flex items-center">
+                        <span className="font-medium text-gray-900">Brand</span>
+                        <span className="ml-6 flex items-center">
                           <svg
-                            class="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                            className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                             viewBox="0 0 20 20"
                             fill="currentColor"
                             aria-hidden="true"
@@ -257,10 +257,10 @@ const Index = ({
                     </h3>
 
                     {toggleBrand ? (
-                      <div class="pt-6" id="filter-section-0">
+                      <div className="pt-6" id="filter-section-0">
                         {uniqueBrands?.map((item, index) => (
-                          <div key={index} class="space-y-4">
-                            <div class="flex items-center">
+                          <div key={index} className="space-y-4">
+                            <div className="flex items-center">
                               <input
                                 id={`filter-color-${index}`}
                                 name="brand"
@@ -270,11 +270,11 @@ const Index = ({
                                 checked={selectedBrands.some(
                                   (brand) => brand.value === item
                                 )}
-                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                               />
                               <label
                                 htmlFor={`filter-color-${index}`}
-                                class="ml-3 text-sm text-gray-600"
+                                className="ml-3 text-sm text-gray-600"
                               >
                                 {item}
                               </label>
@@ -287,19 +287,19 @@ const Index = ({
                     )}
                   </div>
 
-                  <div class="border-b border-gray-200 py-6">
-                    <h3 class="-my-3 flow-root">
+                  <div className="border-b border-gray-200 py-6">
+                    <h3 className="-my-3 flow-root">
                       <button
                         type="button"
-                        class="flex w-full items-center justify-between bg-white p-3 text-sm text-gray-400 hover:text-gray-500"
+                        className="flex w-full items-center justify-between bg-white p-3 text-sm text-gray-400 hover:text-gray-500"
                         aria-controls="filter-section-1"
                         aria-expanded="false"
                         onClick={() => setToggleRating(!toggleRating)}
                       >
-                        <span class="font-medium text-gray-900">Rating</span>
-                        <span class="ml-6 flex items-center">
+                        <span className="font-medium text-gray-900">Rating</span>
+                        <span className="ml-6 flex items-center">
                           <svg
-                            class="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                            className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                             viewBox="0 0 20 20"
                             fill="currentColor"
                             aria-hidden="true"
@@ -315,10 +315,10 @@ const Index = ({
                     </h3>
 
                     {toggleRating ? (
-                      <div class="pt-6" id="filter-section-1">
-                        <div class="space-y-4">
+                      <div className="pt-6" id="filter-section-1">
+                        <div className="space-y-4">
                           <div
-                            class="flex items-center cursor-pointer"
+                            className="flex items-center cursor-pointer"
                             onClick={() => {
                               setRatingFilter({
                                 name: "Rating",
@@ -330,7 +330,7 @@ const Index = ({
                           </div>
 
                           <div
-                            class="flex items-center cursor-pointer"
+                            className="flex items-center cursor-pointer"
                             onClick={() => {
                               setRatingFilter({
                                 name: "Rating",
@@ -342,7 +342,7 @@ const Index = ({
                           </div>
 
                           <div
-                            class="flex items-center cursor-pointer"
+                            className="flex items-center cursor-pointer"
                             onClick={() => {
                               setRatingFilter({
                                 name: "Rating",
@@ -354,7 +354,7 @@ const Index = ({
                           </div>
 
                           <div
-                            class="flex items-center cursor-pointer"
+                            className="flex items-center cursor-pointer"
                             onClick={() => {
                               setRatingFilter({
                                 name: "Rating",
@@ -373,18 +373,18 @@ const Index = ({
                     )}
                   </div>
 
-                  {/* <div class="border-b border-gray-200 py-6">
-                  <h3 class="-my-3 flow-root">
+                  {/* <div className="border-b border-gray-200 py-6">
+                  <h3 className="-my-3 flow-root">
                     <button
                       type="button"
-                      class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500"
+                      className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500"
                       aria-controls="filter-section-2"
                       aria-expanded="false"
                     >
-                      <span class="font-medium text-gray-900">Size</span>
-                      <span class="ml-6 flex items-center">
+                      <span className="font-medium text-gray-900">Size</span>
+                      <span className="ml-6 flex items-center">
                         <svg
-                          class="h-5 w-5"
+                          className="h-5 w-5"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                           aria-hidden="true"
@@ -393,7 +393,7 @@ const Index = ({
                         </svg>
 
                         <svg
-                          class="h-5 w-5"
+                          className="h-5 w-5"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                           aria-hidden="true"
@@ -408,100 +408,100 @@ const Index = ({
                     </button>
                   </h3>
 
-                  <div class="pt-6" id="filter-section-2">
-                    <div class="space-y-4">
-                      <div class="flex items-center">
+                  <div className="pt-6" id="filter-section-2">
+                    <div className="space-y-4">
+                      <div className="flex items-center">
                         <input
                           id="filter-size-0"
                           name="size[]"
                           value="2l"
                           type="checkbox"
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
                         <label
                           for="filter-size-0"
-                          class="ml-3 text-sm text-gray-600"
+                          className="ml-3 text-sm text-gray-600"
                         >
                           2L
                         </label>
                       </div>
 
-                      <div class="flex items-center">
+                      <div className="flex items-center">
                         <input
                           id="filter-size-1"
                           name="size[]"
                           value="6l"
                           type="checkbox"
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
                         <label
                           for="filter-size-1"
-                          class="ml-3 text-sm text-gray-600"
+                          className="ml-3 text-sm text-gray-600"
                         >
                           6L
                         </label>
                       </div>
 
-                      <div class="flex items-center">
+                      <div className="flex items-center">
                         <input
                           id="filter-size-2"
                           name="size[]"
                           value="12l"
                           type="checkbox"
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
                         <label
                           for="filter-size-2"
-                          class="ml-3 text-sm text-gray-600"
+                          className="ml-3 text-sm text-gray-600"
                         >
                           12L
                         </label>
                       </div>
 
-                      <div class="flex items-center">
+                      <div className="flex items-center">
                         <input
                           id="filter-size-3"
                           name="size[]"
                           value="18l"
                           type="checkbox"
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
                         <label
                           for="filter-size-3"
-                          class="ml-3 text-sm text-gray-600"
+                          className="ml-3 text-sm text-gray-600"
                         >
                           18L
                         </label>
                       </div>
 
-                      <div class="flex items-center">
+                      <div className="flex items-center">
                         <input
                           id="filter-size-4"
                           name="size[]"
                           value="20l"
                           type="checkbox"
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
                         <label
                           for="filter-size-4"
-                          class="ml-3 text-sm text-gray-600"
+                          className="ml-3 text-sm text-gray-600"
                         >
                           20L
                         </label>
                       </div>
 
-                      <div class="flex items-center">
+                      <div className="flex items-center">
                         <input
                           id="filter-size-5"
                           name="size[]"
                           value="40l"
                           type="checkbox"
                           checked
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
                         <label
                           for="filter-size-5"
-                          class="ml-3 text-sm text-gray-600"
+                          className="ml-3 text-sm text-gray-600"
                         >
                           40L
                         </label>
@@ -510,8 +510,8 @@ const Index = ({
                   </div>
                 </div> */}
                 </form>
-                <div class=" w-full">
-                  <div class="flex flex-row flex-wrap w-full items-center  md:justify-start gap-y-10">
+                <div className=" w-full">
+                  <div className="flex flex-row flex-wrap w-full items-center  md:justify-start gap-y-10">
                     {loadingProduct ? (
                       <div className="container mx-auto flex justify-center items-center h-[600px]">
                       <PuffLoader
