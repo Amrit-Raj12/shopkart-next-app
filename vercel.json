@@ -1,0 +1,10 @@
+{
+    "functions": {
+      "api/*": {
+        "runtime": "nodejs14.x",
+        "memory": 1024,
+        "maxDuration": 60
+      }
+    }
+  }
+  
