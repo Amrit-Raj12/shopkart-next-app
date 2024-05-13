@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Suspense } from "react"
 import dynamic from "next/dynamic"
 import { lazy } from "react"
@@ -9,8 +9,11 @@ import Mobileview from "../components/Homepage/mobile"
 import Image from "next/image"
 import Banner from "../components/banner"
 import { API_BASE_URL_AUTH } from "../constants/APIConstants"
+import { data } from "../Dummy data/carauselData"
 
-const ProductCateogry = lazy(() => import("../components/Products/Productcatogry"))
+const ProductCateogry = lazy(() =>
+  import("../components/Products/Productcatogry")
+)
 const ProductsCarousel = lazy(
   () => import("../components/Products/ProductsCarousel"),
   { suspense: true }
@@ -18,31 +21,38 @@ const ProductsCarousel = lazy(
 const Highlight = lazy(() => import("../components/Highlights"), {
   suspense: true,
 })
-const Carousel = lazy(() => import("../components/Carousel"), { suspense: true })
-export async function getServerSideProps(context) {
-  let carouselData = []
-  // const API_BASE_URL_AUTH = 'https://auth-task-app.up.railway.app'
-  const urls = [
-    `${API_BASE_URL_AUTH}/api/products/search/fashion`,
-    `${API_BASE_URL_AUTH}/api/products/search/laptop`,
-    `${API_BASE_URL_AUTH}/api/products/search/Smartphones`,
-    `${API_BASE_URL_AUTH}/api/products/search/Electronics`,
-  ]
-  try {
-    const response = await Promise.all(urls.map((url) => axios.get(url)))
-    const data = response.map((res) => res.data)
-    carouselData = data
-  } catch (error) {
-    console.error(error)
-  }
+const Carousel = lazy(() => import("../components/Carousel"), {
+  suspense: true,
+})
+// export async function getServerSideProps(context) {
+//   let carouselData = []
+//   // const API_BASE_URL_AUTH = 'https://auth-task-app.up.railway.app'
+//   const urls = [
+//     `${API_BASE_URL_AUTH}/api/products/search/fashion`,
+//     `${API_BASE_URL_AUTH}/api/products/search/laptop`,
+//     `${API_BASE_URL_AUTH}/api/products/search/Smartphones`,
+//     `${API_BASE_URL_AUTH}/api/products/search/Electronics`,
+//   ]
+//   try {
+//     const response = await Promise.all(urls.map((url) => axios.get(url)))
+//     const data = response.map((res) => res.data)
+//     carouselData = data
+//   } catch (error) {
+//     console.error(error)
+//   }
 
-  return {
-    props: {
-      carouselData,
-    },
-  }
-}
-export default function Index({ carouselData }) {
+//   return {
+//     props: {
+//       carouselData,
+//     },
+//   }
+// }
+
+// {carouselData} --> prop
+export default function Index() {
+  const [carouselData, setCarouselData] = useState(data)
+  console.log("crrr", carouselData)
+
   return (
     <>
       <Suspense fallback={<Loading />}>
