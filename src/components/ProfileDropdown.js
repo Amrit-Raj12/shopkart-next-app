@@ -22,19 +22,29 @@ import {
   Card,
   IconButton,
 } from "@material-tailwind/react"
-import { Cog6ToothIcon, PowerIcon, HeartIcon, ShoppingBagIcon } from "@heroicons/react/24/outline"
+import {
+  Cog6ToothIcon,
+  PowerIcon,
+  HeartIcon,
+  ShoppingBagIcon,
+} from "@heroicons/react/24/outline"
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined"
 import { API_BASE_URL_AUTH } from "../constants/APIConstants"
+import { signOut } from "next-auth/react"
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ")
 }
-export default function Example() {
+export default function Example({ session }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
   const closeMenu = () => setIsMenuOpen(false)
   const profileData = useSelector((state) => state?.profile?.profile)
   const router = useRouter()
   const dispatch = useDispatch()
   const handleSignOut = async () => {
+    if (session) {
+      signOut()
+      return
+    }
     await fetch(`${API_BASE_URL_AUTH}/api/users/logout`, {
       method: "POST",
       headers: {
@@ -51,7 +61,7 @@ export default function Example() {
         router.push("/")
         setIsMenuOpen(false)
       })
-      .catch(function (error) { })
+      .catch(function (error) {})
   }
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
@@ -71,13 +81,39 @@ export default function Example() {
           <p className="hidden lg:block md:block">{profileData?.user?.name}</p>
           <ChevronDownIcon
             strokeWidth={2.5}
-            className={`h-3 w-3 transition-transform ${isMenuOpen ? "rotate-180" : ""
-              }`}
+            className={`h-3 w-3 transition-transform ${
+              isMenuOpen ? "rotate-180" : ""
+            }`}
           />
         </Button>
       </MenuHandler>
       <MenuList className="p-1">
-        <Link href="/account" className="border-none hover:border-none focus:outline-0">
+        <Link
+          href="/account"
+          className="border-none hover:border-none focus:outline-0"
+        >
+          <MenuItem
+            onClick={closeMenu}
+            className="flex items-center gap-2 rounded  "
+          >
+            {React.createElement(Cog6ToothIcon, {
+              className: "h-4 w-4",
+              strokeWidth: 2,
+            })}
+            <Typography
+              as="span"
+              variant="small"
+              className="font-normal"
+              color="inherit"
+            >
+              {session?.user.name}
+            </Typography>
+          </MenuItem>
+        </Link>
+        <Link
+          href="/account"
+          className="hidden border-none hover:border-none focus:outline-0"
+        >
           <MenuItem
             onClick={closeMenu}
             className="flex items-center gap-2 rounded  "
@@ -96,7 +132,10 @@ export default function Example() {
             </Typography>
           </MenuItem>
         </Link>
-        <Link href="/wishlist" className="border-none hover:border-none focus:outline-0">
+        <Link
+          href="/wishlist"
+          className="border-none hover:border-none focus:outline-0"
+        >
           <MenuItem
             onClick={closeMenu}
             className="flex items-center gap-2 rounded "
@@ -150,7 +189,6 @@ export default function Example() {
             Sign out
           </Typography>
         </MenuItem>
-
       </MenuList>
     </Menu>
   )

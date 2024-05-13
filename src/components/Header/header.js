@@ -4,20 +4,24 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 import { useSelector } from "react-redux"
 import ProfileDropdown from "../ProfileDropdown"
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
-import Person2RoundedIcon from '@mui/icons-material/Person2Rounded';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import Person2RoundedIcon from "@mui/icons-material/Person2Rounded"
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined"
 import {
   ChevronDownIcon,
   PhoneIcon,
   PlayCircleIcon,
 } from "@heroicons/react/20/solid"
-import { ShoppingBagIcon, ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline"
+import {
+  ShoppingBagIcon,
+  ArrowTopRightOnSquareIcon,
+} from "@heroicons/react/24/outline"
 import Link from "next/link"
 import SearchBar from "../SearchBar"
 import { Menu } from "@headlessui/react"
 import Image from "next/image"
-import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
+import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded"
 import Mobileheader from "./Mobileheader"
+import { useSession } from "next-auth/react"
 const callsToAction = [
   { name: "Watch demo", href: "#", icon: PlayCircleIcon },
   { name: "Contact sales", href: "#", icon: PhoneIcon },
@@ -31,6 +35,9 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const profileData = useSelector((state) => state?.profile?.profile)
   const items = useSelector((state) => state.cart)
+
+  const { data: session } = useSession()
+  console.log("g data", session)
 
   return (
     <>
@@ -49,8 +56,7 @@ const Header = () => {
                 <span className="sr-only">Open main menu</span>
                 <Bars3Icon className="h-6 w-6 text-white" aria-hidden="true" />
               </button>
-              <Link href="/" >
-
+              <Link href="/">
                 <Image
                   className="w-[15%]; aspect-[3/2] object-contain "
                   src="/logo.png"
@@ -58,7 +64,6 @@ const Header = () => {
                   width="50"
                   height="50"
                 />
-
               </Link>
             </div>
 
@@ -82,8 +87,11 @@ const Header = () => {
             </div>
             <div className="flex items-center justify-between sm:ml-8 sm:min-w-[115px]">
               <div className="mr-0 lg:mr-2">
-                {profileData?.user?.name ? (
-                  <ProfileDropdown profileData={profileData} />
+                {session || profileData?.user?.name ? (
+                  <ProfileDropdown
+                    profileData={profileData}
+                    session={session}
+                  />
                 ) : (
                   <Link
                     href="/auth/sign-in"
@@ -94,7 +102,6 @@ const Header = () => {
                 )}
               </div>
               <div className="flex justify-end   lg:flex lg:flex-1 lg:justify-end  items-center">
-
                 <Menu as="div" className="relative hidden sm:block text-left">
                   <Link href="/wishlist">
                     <div className="relative">
@@ -143,7 +150,7 @@ const Header = () => {
             </Dialog.Panel>
           </Dialog>
         </div>
-      </header >
+      </header>
     </>
   )
 }

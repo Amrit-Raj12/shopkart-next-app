@@ -52,7 +52,6 @@ const Carousel = lazy(() => import("../components/Carousel"), {
 export default function Index() {
   const [carouselData, setCarouselData] = useState(data)
   console.log("crrr", carouselData)
-
   return (
     <>
       <Suspense fallback={<Loading />}>
